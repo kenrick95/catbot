@@ -1,0 +1,22 @@
+{
+    "name": "kenrick/catbot",
+    "description": "Bot that meows",
+    "type": "project",
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "Kenrick",
+            "email": "kenrick95@gmail.com"
+        }
+    ],
+    "require": {
+        "botman/botman": "^2.3",
+        "botman/driver-web": "^1.5",
+        "botman/driver-telegram": "^1.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Catbot\\": "src/"
+        }
+    }
+}
