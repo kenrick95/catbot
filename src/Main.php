@@ -5,7 +5,9 @@ namespace Catbot;
 use BotMan\BotMan\BotMan;
 use BotMan\BotMan\BotManFactory;
 use BotMan\BotMan\Drivers\DriverManager;
+use BotMan\BotMan\Cache\SymfonyCache;
 use Psr\Http\Message\ResponseInterface;
+use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 
 class Main
 {
@@ -24,8 +26,12 @@ class Main
         // DriverManager::loadDriver(\BotMan\Drivers\Telegram\TelegramDriver::class);
         DriverManager::loadDriver(\BotMan\Drivers\Web\WebDriver::class);
 
-        $this->botman = BotManFactory::create($this->config);
-
+        $adapter = new FilesystemAdapter();
+        $this->botman = BotManFactory::create(
+            $this->config,
+            new SymfonyCache($adapter)
+        );
+        
         $this->botman->hears('hello', function (BotMan $bot) {
             $bot->reply('Meow!');
         });
