@@ -10,8 +10,6 @@ use Middlewares\FastRoute;
 use Middlewares\RequestHandler;
 use Relay\Relay;
 use Zend\Diactoros\ServerRequestFactory;
-// use Zend\Diactoros\Response;
-// use Zend\Diactoros\Response\SapiEmitter;
 use Dotenv\Dotenv;
 use function DI\create;
 use function FastRoute\simpleDispatcher;
@@ -45,5 +43,3 @@ $middlewareQueue[] = new RequestHandler($container);
 
 $requestHandler = new Relay($middlewareQueue);
 $response = $requestHandler->handle(ServerRequestFactory::fromGlobals());
-// $emitter = new SapiEmitter();
-// return $emitter->emit($response);

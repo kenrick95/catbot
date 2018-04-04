@@ -12,11 +12,8 @@ use Symfony\Component\Cache\Adapter\FilesystemAdapter;
 class Main
 {
     private $botman;
-    // private $response;
 
     public function __construct($config) {
-
-        // $this->response = $response;
 
         DriverManager::loadDriver(\BotMan\Drivers\Telegram\TelegramDriver::class);
         // DriverManager::loadDriver(\BotMan\Drivers\Web\WebDriver::class);
@@ -26,7 +23,10 @@ class Main
             $config,
             new SymfonyCache($adapter)
         );
-        
+
+        $this->botman->hears('hi', function (BotMan $bot) {
+            $bot->reply('🐱');
+        });
         $this->botman->hears('hello', function (BotMan $bot) {
             $bot->reply('Meow!');
         });
