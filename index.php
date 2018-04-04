@@ -16,7 +16,7 @@ use function DI\create;
 use function FastRoute\simpleDispatcher;
 use function DI\get;
 
-$BASE_URL = '/catbot2';
+$BASE_URL = '';
 
 $containerBuilder = new ContainerBuilder();
 $containerBuilder->useAutowiring(false);
