@@ -10,26 +10,32 @@ use Middlewares\FastRoute;
 use Middlewares\RequestHandler;
 use Relay\Relay;
 use Zend\Diactoros\ServerRequestFactory;
-use Zend\Diactoros\Response;
-use Zend\Diactoros\Response\SapiEmitter;
+// use Zend\Diactoros\Response;
+// use Zend\Diactoros\Response\SapiEmitter;
+use Dotenv\Dotenv;
 use function DI\create;
 use function FastRoute\simpleDispatcher;
 use function DI\get;
 
-$BASE_URL = '';
+$dotenv = new Dotenv(__DIR__);
+$dotenv->load();
 
 $containerBuilder = new ContainerBuilder();
 $containerBuilder->useAutowiring(false);
 $containerBuilder->useAnnotations(false);
 $containerBuilder->addDefinitions([
-    Main::class => create(Main::class)->constructor(),
+    Main::class => create(Main::class)->constructor(get('BotConfig')),
+    'BotConfig' => [
+        'telegram' => [
+            'token' => getenv('TELEGRAM_API_KEY'),
+        ]
+    ],
 ]);
 
 $container = $containerBuilder->build();
 
 $routes = simpleDispatcher(function (RouteCollector $r) {
-    global $BASE_URL;
-    $r->post($BASE_URL . '/api/message', Main::class);
+    $r->post(getenv('BASE_URL') . '/api/message', Main::class);
 });
 
 $middlewareQueue = [];

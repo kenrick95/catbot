@@ -13,22 +13,17 @@ class Main
 {
     private $botman;
     // private $response;
-    private $config = [
-        // 'telegram' => [
-        //     'token' => 'YOUR-TELEGRAM-TOKEN-HERE',
-        // ]
-    ];
 
-    public function __construct() {
+    public function __construct($config) {
 
         // $this->response = $response;
 
-        // DriverManager::loadDriver(\BotMan\Drivers\Telegram\TelegramDriver::class);
-        DriverManager::loadDriver(\BotMan\Drivers\Web\WebDriver::class);
+        DriverManager::loadDriver(\BotMan\Drivers\Telegram\TelegramDriver::class);
+        // DriverManager::loadDriver(\BotMan\Drivers\Web\WebDriver::class);
 
         $adapter = new FilesystemAdapter();
         $this->botman = BotManFactory::create(
-            $this->config,
+            $config,
             new SymfonyCache($adapter)
         );
         

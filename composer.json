@@ -18,7 +18,8 @@
         "middlewares/fast-route": "^1.0",
         "middlewares/request-handler": "^1.1",
         "php-di/php-di": "^6.0",
-        "symfony/cache": "^4.0"
+        "symfony/cache": "^4.0",
+        "vlucas/phpdotenv": "^2.4"
     },
     "autoload": {
         "psr-4": {
