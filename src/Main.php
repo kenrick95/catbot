@@ -23,15 +23,27 @@ class Main
             $config,
             new SymfonyCache($adapter)
         );
+        $this->addReplies();
+    }
 
+    private function addReplies() {
         $this->botman->hears('hi', function (BotMan $bot) {
             $bot->reply('🐱');
         });
-        $this->botman->hears('hello', function (BotMan $bot) {
-            $bot->reply('Meow!');
+        $this->botman->hears('.*(meow+).*', function (BotMan $bot, String $text) {
+            $bot->reply(ucfirst($text) . 'w 😺');
+        });
+        $this->botman->hears('.*(hello).*', function (BotMan $bot) {
+            $bot->reply('Meow 😻');
+        });
+        $this->botman->hears('.*(bye).*', function (BotMan $bot) {
+            $bot->reply('Meow... 😿');
         });
         $this->botman->fallback(function (BotMan $bot) {
-            $bot->reply('Meow');
+            $randomReplies = ['Meow', 'Meoww', 'Meowww~', 'Meowww~'];
+            $replyKey = array_rand($randomReplies);
+            $reply = $randomReplies[$replyKey];
+            $bot->reply($reply);
         });
     }
 
