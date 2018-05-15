@@ -16,6 +16,7 @@ class Main
     public function __construct($config) {
 
         DriverManager::loadDriver(\BotMan\Drivers\Telegram\TelegramDriver::class);
+        DriverManager::loadDriver(\BotMan\Drivers\Facebook\FacebookDriver::class);
         // DriverManager::loadDriver(\BotMan\Drivers\Web\WebDriver::class);
 
         $adapter = new FilesystemAdapter();

@@ -26,6 +26,11 @@ $containerBuilder->addDefinitions([
     'BotConfig' => [
         'telegram' => [
             'token' => getenv('TELEGRAM_API_KEY'),
+        ],
+        'facebook' => [
+            'token' => getenv('FACEBOOK_TOKEN'),
+            'app_secret' => getenv('FACEBOOK_VERIFICATION'),
+            'verification'=> getenv('FACEBOOK_APP_SECRET'),
         ]
     ],
 ]);
