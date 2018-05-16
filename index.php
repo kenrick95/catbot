@@ -29,8 +29,8 @@ $containerBuilder->addDefinitions([
         ],
         'facebook' => [
             'token' => getenv('FACEBOOK_TOKEN'),
-            'app_secret' => getenv('FACEBOOK_VERIFICATION'),
-            'verification'=> getenv('FACEBOOK_APP_SECRET'),
+            'app_secret' => getenv('FACEBOOK_APP_SECRET'),
+            'verification'=> getenv('FACEBOOK_VERIFICATION'),
         ]
     ],
 ]);
