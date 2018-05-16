@@ -39,6 +39,7 @@ $container = $containerBuilder->build();
 
 $routes = simpleDispatcher(function (RouteCollector $r) {
     $r->post(getenv('BASE_URL') . '/api/message', Main::class);
+    $r->get(getenv('BASE_URL') . '/api/message', Main::class);
 });
 
 $middlewareQueue = [];
