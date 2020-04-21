@@ -9,7 +9,7 @@ use FastRoute\RouteCollector;
 use Middlewares\FastRoute;
 use Middlewares\RequestHandler;
 use Relay\Relay;
-use Zend\Diactoros\ServerRequestFactory;
+use Laminas\Diactoros\ServerRequestFactory;
 use Dotenv\Dotenv;
 use function DI\create;
 use function FastRoute\simpleDispatcher;
