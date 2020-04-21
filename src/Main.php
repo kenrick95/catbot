@@ -48,8 +48,9 @@ class Main
         });
     }
 
-    public function __invoke(): void
+    public function __invoke(): string
     {
         $this->botman->listen();
+        return '';
     }
 }

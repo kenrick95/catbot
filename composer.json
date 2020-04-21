@@ -10,15 +10,16 @@
         }
     ],
     "require": {
-        "botman/botman": "^2.3",
+        "botman/botman": "^2.5",
         "botman/driver-web": "^1.5",
         "botman/driver-telegram": "^1.5",
-        "relay/relay": "2.x@dev",
-        "middlewares/fast-route": "^1.0",
-        "middlewares/request-handler": "^1.1",
+        "relay/relay": "^2.1",
+        "middlewares/fast-route": "^2.0",
+        "middlewares/request-handler": "^2.0",
+        "middlewares/utils": "^3.0",
         "php-di/php-di": "^6.0",
         "symfony/cache": "^5.0",
-        "vlucas/phpdotenv": "^2.4",
+        "vlucas/phpdotenv": "^4.1",
         "botman/driver-facebook": "^1.8",
         "laminas/laminas-diactoros": "^2.2"
     },

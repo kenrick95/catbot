@@ -15,7 +15,7 @@ use function DI\create;
 use function FastRoute\simpleDispatcher;
 use function DI\get;
 
-$dotenv = new Dotenv(__DIR__);
+$dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 $containerBuilder = new ContainerBuilder();
