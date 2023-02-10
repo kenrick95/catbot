@@ -19,4 +19,4 @@ jobs:
           PORT: 65002
           USER: u339727842
           ARGS: -avz --exclude-from=.gitignore --exclude=/.git/ --exclude=/.github/
-          POST_SCRIPT: pwd && composer install -n
+          POST_SCRIPT: cd /home/u339727842/public_html/catbot && pwd && composer install -n
